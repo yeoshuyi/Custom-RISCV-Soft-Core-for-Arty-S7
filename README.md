@@ -22,8 +22,9 @@
 
 ## Description
 ### TOP Module
-The architecture of the CPU is shown below.
-> Diagram WIP
+>The rough architecture of the CPU is shown below.
+
+![Architecture](./RISCV_Sketch.png)
 ### Program Counter
 > WIP
 ### Instruction Memory
