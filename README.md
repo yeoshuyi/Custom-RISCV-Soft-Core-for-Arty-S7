@@ -52,7 +52,11 @@ end
 ### Program Register
 > WIP
 ### Immediate Generator
-The Immediate Generator produces a [31:0] result used for other calculations based on the opcode and corresponding imm instructions as shown below. List of instructions can be found at: https://msyksphinz-self.github.io/riscv-isadoc/
+The Immediate Generator produces a [31:0] result used for other calculations based on the opcode and corresponding imm instructions as shown below.
+
+![InstructionSet](./Pictures/RISCV_Instruction_Wikipedia.png)
+> Instruction Set Picture from Wikipedia.
+
 ```systemverilog
 immediate,
 JALR,
