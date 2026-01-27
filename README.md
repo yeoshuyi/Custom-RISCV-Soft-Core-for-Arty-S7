@@ -12,7 +12,7 @@
 | Component | RTL Code (SysVerilog) | Testbench | Hardware Implemented |
 | -- | -- | -- | -- |
 | Program Counter | DONE | WIP | WIP |
-| Instruction Mem | WIP | WIP | WIP |
+| Instruction Mem | DONE | WIP | WIP |
 | Controller / Decoder | WIP | WIP | WIP |
 | Program Register | WIP | WIP | WIP |
 | Immediate Generator | DONE | WIP | WIP |
@@ -33,7 +33,20 @@ always_comb begin
 end
 ```
 ### Instruction Memory
-> WIPb
+The Instruction Memory is a simple dual port memory block, with Port A being read-only and Port B being write-only. The block has width of 32 bit and depth of 1024 words.
+```systemverilog
+//Port A read-only
+always_ff @(posedge clk) begin
+    if(en_A) data_out_A <= memory[addr_A[11:2]];
+end
+
+//Port B write-only
+always_ff @(posedge clk) begin
+    if(en_B) begin
+        if(write_en_B) memory[addr_B[9:0]] <= write_data_B;
+    end
+end
+```
 ### Controller and Decoder
 > WIP
 ### Program Register

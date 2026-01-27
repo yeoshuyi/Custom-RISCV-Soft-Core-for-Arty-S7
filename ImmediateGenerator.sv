@@ -10,10 +10,12 @@ module ImmediateGenerator(
     localparam branch =    7'b1100011;
     localparam LUI =       7'b0110111;
     localparam JAL =       7'b1101111;
+    localparam JALR =      7'b1100111;
 
     always_comb begin
         case (instr[6:0]) //Instruction op_code
 			immediate,
+            JALR,
             load: imm_gen = {{20{instr[31]}}, instr[31:20]};
             store: imm_gen = {{20{instr[31]}}, instr[31:25], instr[11:7]};
             branch: imm_gen = {{20{instr[31]}}, instr[7], instr[30:25], instr[11:8], 1'b0};
