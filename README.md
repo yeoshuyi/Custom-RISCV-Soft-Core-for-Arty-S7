@@ -13,8 +13,8 @@
 | -- | -- | -- | -- |
 | Program Counter | DONE | WIP | WIP |
 | Instruction Mem | DONE | WIP | WIP |
-| Controller / Decoder | WIP | WIP | WIP |
-| Program Register | WIP | WIP | WIP |
+| Controller / Decoder | DONE | WIP | WIP |
+| Program Register | DONE | WIP | WIP |
 | Immediate Generator | DONE | WIP | WIP |
 | Arithmetic Logic Unit | DONE | WIP | WIP |
 | Data Memory | WIP | WIP | WIP |
