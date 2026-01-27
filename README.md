@@ -48,7 +48,19 @@ always_ff @(posedge clk) begin
 end
 ```
 ### Controller and Decoder
-> WIP
+RISC Controller decodes the instruction and outputs the appropriate signals for the ALU, Data Memory, Immediate Generator and the various MUX. Listed below are the various I/O signals.
+```systemverilog
+input logic [31:0] instr,
+
+output logic reg_write,
+output logic mem_write,
+output logic mem_read,
+output logic branch,
+output logic jump,
+output logic [3:0] alu_control,
+output logic alu_src,
+output logic result_sel
+```
 ### Program Register
 > WIP
 ### Immediate Generator

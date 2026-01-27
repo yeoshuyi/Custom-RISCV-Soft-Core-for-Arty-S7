@@ -4,16 +4,18 @@ module ImmediateGenerator(
     output logic [31:0] imm_gen
     );
 
-    localparam immediate = 7'b0010011;
-    localparam load =      7'b0000011;
-    localparam store =     7'b0100011;
-    localparam branch =    7'b1100011;
-    localparam LUI =       7'b0110111;
-    localparam JAL =       7'b1101111;
-    localparam JALR =      7'b1100111;
+    localparam [6:0]immediate = 7'b0010011,
+                    load =      7'b0000011,
+                    store =     7'b0100011,
+                    branch =    7'b1100011,
+                    LUI =       7'b0110111,
+                    JAL =       7'b1101111,
+                    JALR =      7'b1100111;
+
+    wire [6:0] op_code = instr[6:0];
 
     always_comb begin
-        case (instr[6:0]) //Instruction op_code
+        case (op_code)
 			immediate,
             JALR,
             load: imm_gen = {{20{instr[31]}}, instr[31:20]};

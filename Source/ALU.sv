@@ -8,16 +8,16 @@ module ALU(
     output logic zero
     );
 
-    localparam op_ADD = 4'b0000; //A + B
-    localparam op_SUB = 4'b1000; //A - B
-    localparam op_SLL = 4'b0001; //SHIFT A LEFT LOGICAL BY B
-    localparam op_SLT = 4'b0010; //SET IF LESS A < B
-    localparam op_SLTU = 4'b0011; //SET IF LESS UNSIGNED A < B
-    localparam op_XOR = 4'b0100; //A ^ B 
-    localparam op_SRL = 4'b0101; //SHIFT A RIGHT LOGICAL BY B
-    localparam op_SRA = 4'b1101; //SHIFT A RIGHT ARITHMETHIC BY B
-    localparam op_OR = 4'b0110; //A OR B
-    localparam op_AND = 4'b0111; //A AND B
+    localparam [3:0]    op_ADD = 4'b0000, //A + B
+                        op_SUB = 4'b1000, //A - B
+                        op_SLL = 4'b0001, //SHIFT A LEFT LOGICAL BY B
+                        op_SLT = 4'b0010, //SET IF LESS A < B
+                        op_SLTU = 4'b0011, //SET IF LESS UNSIGNED A < B
+                        op_XOR = 4'b0100, //A ^ B 
+                        op_SRL = 4'b0101, //SHIFT A RIGHT LOGICAL BY B
+                        op_SRA = 4'b1101, //SHIFT A RIGHT ARITHMETHIC BY B
+                        op_OR = 4'b0110, //A OR B
+                        op_AND = 4'b0111; //A AND B
 
     logic [32:0] arith_total;
 
