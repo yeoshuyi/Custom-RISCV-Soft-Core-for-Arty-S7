@@ -62,7 +62,17 @@ output logic alu_src,
 output logic result_sel
 ```
 ### Program Register
-> WIP
+The Program Register stores temporary variables in random access asynchronous registers that mainly interacts with the ALU. rs1, rs2 and rd is decoded from the instruction. Two seperate signals, rs1 and rs2 selects the two read port addresses, while rd selects the write port address for writeback from the ALU output. Memory location 0x is blocked and hardwired to 31'b0.
+```systemverilog
+assign data_out_A = (rs1 == 5'b0) ? 32'b0 : memory[rs1];
+assign data_out_B = (rs2 == 5'b0) ? 32'b0 : memory[rs2];
+
+always_ff @(posedge clk) begin
+    if(write_en && (rd != 5'b0)) begin
+        memory[rd] <= write_back;
+    end
+end
+```
 ### Immediate Generator
 The Immediate Generator produces a [31:0] result used for other calculations based on the opcode and corresponding imm instructions as shown below.
 
