@@ -16,9 +16,9 @@
 | Controller / Decoder | DONE | WIP | WIP |
 | Program Register | DONE | WIP | WIP |
 | Immediate Generator | DONE | WIP | WIP |
-| Arithmetic Logic Unit | DONE | WIP | WIP |
-| Data Memory | WIP | WIP | WIP |
-| TOP | WIP | WIP | WIP |
+| Arithmetic Logic Unit | DONE | DONE | WIP |
+| Data Memory | DONE | WIP | WIP |
+| TOP | DONE | WIP | WIP |
 
 ## Description
 ### TOP Module
@@ -120,4 +120,10 @@ op_AND: data_out = data_in_A & data_in_B;
 default: data_out = 32'b0;
 ```
 ### Data Memory
-> WIP
+The Data Memory is a simple BRAM inference with 32 bit width.
+```systemverilog
+always_ff @(posedge clk) begin
+        if(mem_read) data_out <= memory[addr[11:2]];
+        if(write_en) memory[addr[11:2]] <= write_data;
+    end
+```

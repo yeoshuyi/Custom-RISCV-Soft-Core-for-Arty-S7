@@ -24,14 +24,14 @@ module ALU(
     always_comb begin
         data_out = 32'b0;
 
-        case(alu_control):
+        case(alu_control)
             op_ADD: begin
                 arith_total = {1'b0, data_in_A} + {1'b0, data_in_B};
-                data_out = arit_total[31:0];
+                data_out = arith_total[31:0];
             end
             op_SUB: begin
                 arith_total = {1'b0, data_in_A} - {1'b0, data_in_B};
-                data_out = arit_total[31:0];
+                data_out = arith_total[31:0];
             end
             op_SLL: data_out = data_in_A << data_in_B[4:0];
             op_SLT: data_out = ($signed(data_in_A) < $signed(data_in_B)) ? 32'h00000001 : 32'b0;

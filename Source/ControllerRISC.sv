@@ -86,7 +86,7 @@ module ControllerRISC(
                 reg_write = 1'b1;
                 jump = 1'b1;
                 alu_src = 1'b1;
-                alu_control 4'b0000;
+                alu_control = 4'b0000;
             end
         endcase
     end

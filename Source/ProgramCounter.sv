@@ -10,7 +10,7 @@ module ProgramCounter(
     logic [31:0] next_address;
 
     always_ff @(posedge clk or posedge reset) begin
-        if(reset)  address <= 32'b0
+        if(reset)  address <= 32'b0;
         else address <= next_address;
     end
 
