@@ -1,11 +1,13 @@
 `timescale 1ns / 1ps
 
 module TopRISCV(
-    input logic clk,
     input logic reset,
+    input logic ddr_clock,
     
     output logic [31:0] write_back_toPR
     );
+    
+    wire clk;
     
     wire [31:0] jump_addr;
     wire jump_enable;
@@ -34,6 +36,13 @@ module TopRISCV(
     wire carry;
     
     wire [31:0] mem_out;
+    
+    ClkGen ClkGen_i
+    (
+        .clk_out1_0(clk),
+        .ddr_clock(ddr_clock),
+        .reset(reset)
+    );
     
     ProgramCounter ProgramCounterModule
     (

@@ -7,7 +7,8 @@ module ProgramRegister(
     output logic [31:0] data_out_A,
     output logic [31:0] data_out_B
     );
-
+    
+    (* max_fanout = 30 *)
     logic [31:0] memory [31:0];
     wire [4:0] rs1 = instr[19:15];
     wire [4:0] rs2 = instr[24:20];

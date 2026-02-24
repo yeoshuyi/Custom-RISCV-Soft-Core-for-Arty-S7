@@ -11,6 +11,7 @@ module InstructionMemory(
     );
 
     (* ram_style = "block" *)
+    (* max_fanout = 30 *)
     logic [31:0] memory [1023:0];
     
     //Port A read-only
